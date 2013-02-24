@@ -22,8 +22,8 @@ packages, see Caveats)
 
     vrms
     
-Check all packages in locally synced package repositories, not just
-locally installed packages:
+Check all packages in locally synced package repositories (does not
+and can not include the AUR), not just locally installed packages:
 
     vrms -g
 
