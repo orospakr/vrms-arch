@@ -35,14 +35,14 @@ as the license field value.  As per the
 this indicates that the package does not use an exact copy of one of
 the licenses included in the core
 [`licenses` package](https://www.archlinux.org/packages/core/any/licenses/),
-providing well-known free licenses at `/usr/share/licenses/common`.
-However, the Packaging Standards go on to say that the license field
-can be disambiguated in the form of `custom: ZLIB` or `custom: PUEL`.
-Sadly, there are 722 packages in the ArchLinux pacman repositories
-(Core, Community, Extra, and Multilib) that specify only `custom`.
-Many packages also carelessly use variant naming of well-known
-licenses (`GPL-2`, `GPLv2`, etc.) in spite of the Packaging Standards,
-causing further confusion.
+which provides well-known free licenses at
+`/usr/share/licenses/common`.  However, the Packaging Standards go on
+to say that the license field can be disambiguated in the form of
+`custom: ZLIB` or `custom: PUEL`.  Sadly, there are 722 packages in
+the ArchLinux pacman repositories (Core, Community, Extra, and
+Multilib) that specify only `custom`.  Many packages also carelessly
+use variant naming of well-known licenses (`GPL-2`, `GPLv2`, etc.) in
+spite of the Packaging Standards, causing further confusion.
 
 Many commonly used Free Software licenses aren't included in the
 common `licenses` packages because they require editing to be applied
