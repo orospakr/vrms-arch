@@ -4,7 +4,8 @@ AMBIGUOUS_LICENSES = [
     "custom",
     "other",
     "unknown",
-    # CCPL can refer to different Creative Commons licenses, some of
+    # CCPL (Creative Commons) should be specified with one of the
+    # sublicenses (one of /usr/share/licenses/common/CCPL/*) , some of
     # which are non-free
     "CCPL", # ['claws-mail-themes', '0ad', '0ad-data', 'archlinux-lxdm-theme', 'mari0', 'performous-freesongs']
 ]
