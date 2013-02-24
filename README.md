@@ -47,3 +47,5 @@ causing further confusion.
 Many commonly used Free Software licenses aren't included in the
 common `licenses` packages because they require editing to be applied
 to a given project, such as the BSD and MIT licenses.
+
+The same problems extend to the AUR.
