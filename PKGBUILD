@@ -1,15 +1,15 @@
 # Maintainer : Andrew Clunis <andrew@orospakr.ca>
 
 pkgname=vrms
-pkgver=0.1.0
+pkgver=20130226
 pkgrel=1
-pkgdesc="Libalpm bindings for Python 3"
+pkgdesc="vrms for ArchLinux"
 arch=('any')
-url="http://projects.archlinux.org/users/remy/pyalpm.git/"
+url="https://github.com/orospakr/vrms-arch"
 license=('custom: BSD3')
-depends=('python>=3.3' 'pacman3.6')
-source=("ftp://ftp.archlinux.org/other/pyalpm/$pkgname-$pkgver.tar.gz")
-md5sums=('d5d45cafa98050a4d3c77e4a8f597ff3')
+depends=('python>=3.3' 'pyalpm>=0.5.3')
+source=()
+md5sums=()
 
 _gitname=vrms-arch
 _gitroot=git://github.com/orospakr/vrms-arch
