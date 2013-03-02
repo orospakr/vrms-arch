@@ -27,6 +27,18 @@ and can not include the AUR), not just locally installed packages:
 
     vrms -g
 
+# Building
+
+Build a package out of local checkout of this source code on Arch:
+
+    makepkg --noextract
+    
+This works because I include a `src` symlink that points to `..`,
+which fools `makepkg` into using the local checkout as the source.
+
+The same PKGBUILD, without `--noextract` and the `src` symlink, will
+fetch whatever's on the `stable` branch of the GitHub repo.
+
 ## Caveats
 
 A great deal of packages in Arch, both free and non-free, use `custom`

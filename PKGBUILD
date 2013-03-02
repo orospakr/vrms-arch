@@ -1,7 +1,7 @@
 # Maintainer : Andrew Clunis <andrew@orospakr.ca>
 
 pkgname=vrms
-pkgver=20130226
+pkgver=20130302
 pkgrel=1
 pkgdesc="vrms for ArchLinux"
 arch=('any')

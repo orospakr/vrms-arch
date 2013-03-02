@@ -1,4 +1,5 @@
 import pyalpm
+import sys
 
 AMBIGUOUS_LICENSES = [
     "custom",
@@ -197,15 +198,15 @@ class LicenseFinder(object):
             print("%s: %d" % (lic, len(self.by_license[lic])))
 
     def list_all_unknown_packages(self):
-        print("Packages of unknown license on this system: %d" % len(self.unknown_packages))
+        print("Packages of unknown license on this system: %d" % len(self.unknown_packages), file=sys.stderr)
 
         for upackage in self.unknown_packages:
             print("%s: %s" % (upackage.name, upackage.licenses))
 
     def list_all_nonfree_packages(self):
-        print("Non-free packages on this system: %d" % len(self.nonfree_packages))
-
         for nfpackage in self.nonfree_packages:
             print("%s: %s" % (nfpackage.name, nfpackage.licenses))
 
-        print("There are %d ambiguously licensed packages that vrms cannot certify." % len(self.unknown_packages))
+        print("\nNon-free packages: %d\n" % len(self.nonfree_packages), file=sys.stderr)
+
+        print("However, there are %d ambiguously licensed packages that vrms cannot certify." % len(self.unknown_packages), file=sys.stderr)

@@ -3,7 +3,9 @@
 # If you consider the output of this program to be legal advice,
 # you're insane.
 
-import os, os.path
+import os
+import os.path
+import sys
 
 from optparse import OptionParser
 
@@ -15,16 +17,14 @@ import pyalpm
 import vrms_arch
 import vrms_arch.license_finder
 
-
-
 parser = OptionParser()
 
 parser.add_option("-g", "--global-repos",
                   dest="use_global_repos",
                   action="store_true",
                   default=False,
-                  help="Check licenses in all packages in all synced repositories, rather than that of locally installed packages")
-parser.add_option("-a", "--list-all-licenses",
+                  help="Check licenses in all packages in all synced repositories (but not the AUR!), rather than that of locally installed packages")
+parser.add_option("-a", "--list-licenses",
                   dest="list_all_licenses",
                   action="store_true",
                   default=False,
@@ -33,7 +33,7 @@ parser.add_option("-u", "--list-unknowns",
                   dest="list_unknowns",
                   action="store_true",
                   default=False,
-                  help="List unknown packages instead of non-free packages")
+                  help="List packages of unknown license instead of non-free packages")
 
 (options, args) = parser.parse_args()
 
@@ -52,12 +52,12 @@ else:
 visitor = vrms_arch.license_finder.LicenseFinder()
 
 for db in dbs_to_visit:
-    print("Reading pacman DB: %s" % db.name)
+    # print("Reading pacman DB: %s" % db.name, file=sys.stderr)
     visitor.visit_db(db)
 
 if options.list_unknowns:
     visitor.list_all_unknown_packages()
-if options.list_all_licenses:
+elif options.list_all_licenses:
     visitor.list_all_licenses_as_python()
 else:
     visitor.list_all_nonfree_packages()
