@@ -16,6 +16,7 @@ import pyalpm
 
 import vrms_arch
 import vrms_arch.license_finder
+import vrms_arch.unambiguous_db
 
 parser = OptionParser()
 
@@ -53,6 +54,7 @@ visitor = vrms_arch.license_finder.LicenseFinder()
 
 for db in dbs_to_visit:
     # print("Reading pacman DB: %s" % db.name, file=sys.stderr)
+    db = vrms_arch.unambiguous_db.UnambiguousDb(db)
     visitor.visit_db(db)
 
 if options.list_unknowns:

@@ -170,7 +170,7 @@ class LicenseFinder(object):
         self.nonfree_packages = []
 
     def visit_db(self, db):
-        pkgs = db.search("")
+        pkgs = db.packages
 
         for pkg in pkgs:
             for license in pkg.licenses:
