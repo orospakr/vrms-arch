@@ -152,6 +152,12 @@ FREE_LICENSES = [
     "GPL3+"
 ]
 
+FREE_LICENSES_NAMING_VARIANTS = [
+    "GPLv2"
+]
+
+FREE_LICENSES += FREE_LICENSES_NAMING_VARIANTS
+
 class LicenseFinder(object):
     def __init__(self):
         # all of the seen license names with counts
