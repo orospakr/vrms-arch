@@ -9,16 +9,19 @@ AMBIGUOUS_LICENSES = [
     # sublicenses (one of /usr/share/licenses/common/CCPL/*) , some of
     # which are non-free
     "CCPL", # ['claws-mail-themes', '0ad', '0ad-data', 'archlinux-lxdm-theme', 'mari0', 'performous-freesongs']
+    "CCPL:cc-by-sa-3.0",
 ]
 
 FREE_LICENSES = [
     "GPL",
     "LGPL",
     "GPL2",
+    "GPLv2",
     "PerlArtistic",
     "BSD",
     "FDL",
     "GPL3",
+    "GPLv3",
     "MIT",
     "MPL",
     "APACHE",
@@ -76,6 +79,8 @@ FREE_LICENSES = [
     "Artistic2.0", # ['simutrans-pak128']
     "custom:ex", # ['vi']
     "custom:XFREE86", # ['lib32-libx11']
+    "custom:X11",
+    "custom:\"sip\"",
     "custom:MirOS", # ['kwalletcli']
     "custom:GPL", # ['faad2']
     # "custom:Sendmail open source license", ['libmilter']
