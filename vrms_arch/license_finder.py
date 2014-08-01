@@ -13,155 +13,138 @@ AMBIGUOUS_LICENSES = [
 ]
 
 FREE_LICENSES = [
-    "GPL",
-    "LGPL",
-    "GPL2",
-    "GPLv2",
-    "PerlArtistic",
-    "BSD",
-    "FDL",
-    "GPL3",
-    "GPLv3",
-    "MIT",
-    "MPL",
-    "APACHE",
-    "LGPL2.1",
-    "LGPL3",
-    "custom:BSD3",
-    "custom:BSD",
-    "PHP",
-    "custom:MIT",
-    "FDL1.2",
-    "Apache",
-    "ZLIB",
-    "PSF",
-    "custom:vim",
-    "custom:ISC",
-    "custom:LGPL",
-    "custom:University of Illinois/NCSA Open Source License",
-    "Artistic",
-    "LGPL2", # ['mono', 'ocaml', 'taglib-sharp', 'omniorb', 'pyogg', 'lib32-gdk-pixbuf2']
-    "zlib", # ['box2d', 'clanlib', 'csfml', 'love', 'sfml', 'tinyxml']
-    "custom:OFL", # ['ttf-linux-libertine', 'terminus-font', 'ttf-gentium', 'ttf-inconsolata', 'ttf-liberation']
-    "custom: MIT", # ['hardlink', 'newsbeuter', 'python-sqlalchemy', 'python2-sqlalchemy']
-    "ZPL", # ['python-zope-interface', 'python2-zope-interface', 'python2-mechanize', 'python2-meld3']
-    "custom:PostgreSQL", # ['postgresql', 'postgresql-docs', 'postgresql-libs', 'postgresql-old-upgrade']
-    "AGPL", # ['ghostscript', 'itext', 'esmska', 'python2-ubuntuone-storageprotocol']
-    "apache", # ['intellij-idea-community-edition', 'intellij-idea-libs', 'jmeter', 'ttf-droid']
-    "custom:PYTHON", # ['python-dateutil', 'python-pyserial', 'python2-dateutil', 'python2-pyserial']
-    "custom:\"font embedding exception\"", # ['wqy-bitmapfont', 'wqy-microhei', 'wqy-zenhei']
-    "custom:zlib", # ['qwtplot3d', 'bullet', 'bullet-docs']
-    "custom: ISC", # ['python-requests', 'python2-grequests', 'python2-requests']
-    "CDDL", # ['cdrtools', 'libraw', 'netbeans']
-    "EPL", # ['eclipse-ecj', 'swt', 'eclipse-cdt']
-    "custom: BSD", # ['python-psutil', 'python2-psutil', 'sfk']
-    "custom:CeCILL", # ['gimp-plugin-gmic', 'gmic', 'zart'] # FSF approves, OSI does not!
-    "CPL", # ['junit', 'clojure', 'sleuthkit']
-    "custom:wxWindows", # ['wxgtk', 'wxpython', 'wxgtk2.9']
-    "Modified BSD", # ['ipython', 'ipython2', 'ipython2-docs']
-    "CUSTOM", # ['vde2', 'python2-lcms', 'python2-reportlab']
-    "custom:unknown", # ['perl-guard', 'erlang-cl']
-    "CCPL:cc-by-sa", # ['archlinux-themes-kdm', 'archlinux-themes-slim']
-    "Public Domain", # ['stopwatch', 'unclutter']
-    "custom:cc-by-sa-2.5", # ['human-icon-theme', 'tangerine-icon-theme']
-    "custom:isc-dhcp", # ['dhclient', 'dhcp']
-    "custom:Expat", # ['pep8-python2', 'pep8-python3']
-    "custom:WTFPL", # ['ponysay', 'vim-nerdtree'] # FSF approves, OSI does not!
-    "custom:zlib/libpng", # ['liblinebreak', 'ois']
-    "custom: QPL-1.0", # ['ocaml', 'ocaml-compiler-libs']
-    "custom:ZLIB", # ['glfw', 'libharu']
-    "custom:Creative Commons, Attribution 3.0 Unported", # ['mythes-nl', 'hunspell-nl']
-    "custom:MIT/X", # ['tabbed']
-    "custom:MPLv2", # ['hunspell-fr']
-    "custom:etpan", # ['libetpan']
-    "custom:INN", # ['inn']
-    "custom:Artistic", # ['procmail']
-    "Artistic2.0", # ['simutrans-pak128']
-    "custom:ex", # ['vi']
-    "custom:XFREE86", # ['lib32-libx11']
-    "custom:X11",
-    "custom:\"sip\"",
-    "custom:MirOS", # ['kwalletcli']
-    "custom:GPL", # ['faad2']
-    # "custom:Sendmail open source license", ['libmilter']
-                                              # technically if only
-                                              # Sendmail Inc/Eric
-                                              # Allman is copyright
-                                              # holder. too hard to
-                                              # figure out this one.
-                                              # maybe this is why
-                                              # debian used exim ;)
-
-    "PerlArtistic2", # ['perl-module-implementation']
-    "custom:Artistic 2.0", # ['pv']
-    "RUBY", # ['ruby-highline']
-    "Python", # ['python2-memcached']
-    "custom:Arphic Public License", # ['opendesktop-fonts']
-    "custom:PUEL", # ['virtualbox-guest-iso']
-    "custom:scite", # ['scite']
-    "custom:Arphic_Public_License", # ['ttf-arphic-uming']
-    "custom:Boost", # ['pion']
-    "custom:GPL/BSD", # ['ppp']
-    "custom:voidspace", # ['python2-configobj']
-    "custom:BSD-style", # ['javasqlite']
-    "custom:MITX11", # ['mono']
-    "custom:QPL", # ['qt3-doc']
-    "custom:icu", # ['lib32-icu']
-    "custom:scowl", # ['hunspell-en']
-    "custom:EPL", # ['graphviz']
-    "BSD3", # ['haskell-bytestring-show']
-    "custom:Artistic-2.0", # ['qpdf']
-    "custom:publicdomain", # ['spring-kp']
-    "custom:\"pil\"", # ['python2-imaging']
-    "custom:\"IBM Public Licence\"", # ['sleuthkit']
-    "custom:FIPL", # ['freeimage']
-    "custom:\"icu\"", # ['icu']
-    "custom:qwt", # ['qwt']
-    "custom:NoCopyright", # ['dnssec-anchors'] # public domain?
-    "custom:webmin", # ['webmin']
-    "custom:CCBYSA3.0", # ['megaglest-data']
-    "custom:Sendmail", # ['opendkim']
-    "custom:CCPL:by-sa", # ['openstreetmap-map-icons-svn']
-    "custom:TRADEMARKS", # ['archlinux-artwork']
-    "W3C", # ['libwww']
-    "custom:usermin", # ['usermin']
-    "custom:Ubuntu Font Licence 1.0", # ['ttf-ubuntu-font-family'] #
-                                      # derivative of SIL, going to
-                                      # assume yes
-    "custom:OASIS", # ['hunspell-de']
-    "perl", # ['perl-module-runtime']
-    "custom:artistic", # ['chromium-bsu']
-    "bsd", # ['tcllib']
-    "custom:nfsidmap", # ['nfsidmap']
-    "custom:LGPL2", # ['sk1libs']
-    "custom:none", # ['licenses'] # public domain?
-    "AGPL3", # ['mongodb']
-    "custom:public domain", # ['python2-webpy']
-    "custom:Xiph", # ['lib32-flac']
-    "EPL/1.1", # ['eclipse']
-    "custom:Public_Domain", # ['ttf-mph-2b-damase']
-    "CCPL:by-sa", # ['geogebra']
-    "custom:FFSL", # ['ttytter']
-    "boost", # ['boost-build']
-    "custom:Public Domain", # ['talkfilters']
-    "custom:OPEN DATA LICENSE", # ['geoip-database']
-    "custom:OSGPL", # ['openscenegraph']
-    "custom:JasPer2.0", # ['jasper']
-    "custom:dumb", # ['dumb']
-    "ISC", # ['yajl']
-    "custom:CCBYSA", # ['zaz']
-    "custom: Arphic Public_License", # ['ttf-arphic-ukai']
-    
-    # and a few more goofy variants that I personally found on AUR:
-    "GPL-3",
-    "GPL3+"
+    'AGPL',
+    'AGPL3',
+    'APACHE',
+    'Apache',
+    'Apache 2.0',
+    'apache',
+    'Artistic',
+    'Artistic2.0',
+    'boost',
+    'BSD',
+    'bsd',
+    'BSD3',
+    'CCPL:by-sa',
+    'CCPL:cc-by-sa',
+    'CPL',
+    'CUSTOM',
+    'EPL',
+    'EPL/1.1',
+    'FDL',
+    'FDL1.2',
+    'GPL',
+    'GPL-3',
+    'GPL2',
+    'GPL3',
+    'GPL3+GPLv2',
+    'GPLv2',
+    'GPLv3',
+    'ISC',
+    'LGPL',
+    'LGPL2',
+    'LGPL2.1',
+    'LGPL3',
+    'MIT',
+    'MPL',
+    'Modified BSD',
+    'OFL-1.1',
+    'PHP',
+    'PSF',
+    'perl',
+    'PerlArtistic',
+    'PerlArtistic2',
+    'Public Domain',
+    'Python',
+    'RUBY',
+    'W3C',
+    'ZLIB',
+    'zlib',
+    'ZPL',
+    'custom: Arphic Public_License',
+    'custom: BSD',
+    'custom: ISC',
+    'custom: MIT',
+    'custom: QPL-1.0',
+    'custom:"IBM Public Licence"',
+    'custom:"font embedding exception"',
+    'custom:"icu"',
+    'custom:"pil"',
+    'custom:"sip"',
+    'custom:Arphic Public License',
+    'custom:Arphic_Public_License',
+    'custom:Artistic',
+    'custom:Artistic 2.0',
+    'custom:Artistic-2.0',
+    'custom:BSD',
+    'custom:BSD-style',
+    'custom:BSD3',
+    'custom:Boost',
+    'custom:CCBYSA',
+    'custom:CCBYSA3.0',
+    'custom:CCPL:by-sa',
+    'custom:CeCILL',
+    'custom:Creative Commons, Attribution 3.0 Unported',
+    'custom:EPL',
+    'custom:Expat',
+    'custom:FFSL',
+    'custom:FIPL',
+    'custom:GPL',
+    'custom:GPL/BSD',
+    'custom:GPL+FE',
+    'custom:INN',
+    'custom:ISC',
+    'custom:JasPer2.0',
+    'custom:LGPL',
+    'custom:LGPL2',
+    'custom:MIT',
+    'custom:MIT/X',
+    'custom:MITX11',
+    'custom:MPLv2',
+    'custom:MirOS',
+    'custom:NoCopyright',
+    'custom:OASIS',
+    'custom:OFL',
+    'custom:OPEN DATA LICENSE',
+    'custom:OSGPL',
+    'custom:PUEL',
+    'custom:PYTHON',
+    'custom:PostgreSQL',
+    'custom:Public Domain',
+    'custom:Public_Domain',
+    'custom:QPL',
+    'custom:Sendmail',
+    'custom:TRADEMARKS',
+    'custom:Ubuntu Font Licence 1.0',
+    'custom:University of Illinois/NCSA Open Source License',
+    'custom:WTFPL',
+    'custom:X11',
+    'custom:XFREE86',
+    'custom:Xiph',
+    'custom:ZLIB',
+    'custom:artistic',
+    'custom:cc-by-sa-2.5',
+    'custom:dumb',
+    'custom:etpan',
+    'custom:ex',
+    'custom:icu',
+    'custom:isc-dhcp',
+    'custom:nfsidmap',
+    'custom:none',
+    'custom:public domain',
+    'custom:publicdomain',
+    'custom:qwt',
+    'custom:scite',
+    'custom:scowl',
+    'custom:unknown',
+    'custom:usermin',
+    'custom:vim',
+    'custom:voidspace',
+    'custom:webmin',
+    'custom:wxWindows',
+    'custom:zlib',
+    'custom:zlib/libpng',
 ]
-
-FREE_LICENSES_NAMING_VARIANTS = [
-    "GPLv2"
-]
-
-FREE_LICENSES += FREE_LICENSES_NAMING_VARIANTS
 
 class LicenseFinder(object):
     def __init__(self):
