@@ -27,6 +27,7 @@ FREE_LICENSES = [
     'BSD3',
     'CCPL:by-sa',
     'CCPL:cc-by-sa',
+    'CDDL',
     'CPL',
     'CUSTOM',
     'EPL',
