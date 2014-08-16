@@ -152,13 +152,15 @@ class LicenseFinder(object):
         self.by_license = {}
 
         # packages with "custom" license
-        self.unknown_packages = []
+        self.unknown_packages = set()
 
         # packages with a known non-free license
-        self.nonfree_packages = []
+        self.nonfree_packages = set()
 
     def visit_db(self, db):
         pkgs = db.packages
+
+        free_pkgs = []
 
         for pkg in pkgs:
             for license in pkg.licenses:
@@ -168,13 +170,16 @@ class LicenseFinder(object):
                 else:
                     self.by_license[license].append(pkg)
 
-                if license not in FREE_LICENSES:
-                    if license in AMBIGUOUS_LICENSES:
-                        if (pkg not in self.unknown_packages):
-                            self.unknown_packages.append(pkg)
-                    else:
-                        if (pkg not in self.nonfree_packages):
-                            self.nonfree_packages.append(pkg)
+            free_licenses = list(filter(lambda x: x in FREE_LICENSES, pkg.licenses))
+            amb_licenses = list(filter(lambda x: x in AMBIGUOUS_LICENSES, pkg.licenses))
+
+            if len(free_licenses) > 0:
+                free_pkgs.append(pkg)
+                continue
+            elif len(amb_licenses) > 0:
+                self.unknown_packages.add(pkg)
+            else:
+                self.nonfree_packages.add(pkg)
 
     # Print all seen licenses in a convenient almost python list
     def list_all_licenses_as_python(self):
