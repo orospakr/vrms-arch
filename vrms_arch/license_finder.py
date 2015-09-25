@@ -58,6 +58,7 @@ FREE_LICENSES = [
     'Public Domain',
     'Python',
     'RUBY',
+    'SIL OPEN FONT LICENSE Version 1.1',
     'W3C',
     'ZLIB',
     'zlib',
