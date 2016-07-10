@@ -60,6 +60,7 @@ FREE_LICENSES = [
     'RUBY',
     'SIL OPEN FONT LICENSE Version 1.1',
     'W3C',
+    'WTFPL',
     'ZLIB',
     'zlib',
     'ZPL',
