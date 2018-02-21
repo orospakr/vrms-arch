@@ -43,8 +43,8 @@ h = pyalpm.Handle("/", "/var/lib/pacman")
 dbs_to_visit = []
 
 if(options.use_global_repos):
-    for d in os.listdir("/var/lib/pacman/sync"):
-        h.register_syncdb(os.path.splitext(d)[0], 0)
+    for d in set(os.path.splitext(f)[0] for f in os.listdir("/var/lib/pacman/sync")):
+        h.register_syncdb(d, 0)
     dbs_to_visit = h.get_syncdbs()
 else:
     # print("There are %d installed packages." % len(h.get_localdb()))
