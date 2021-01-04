@@ -13,6 +13,7 @@ AMBIGUOUS_PACKAGES = {
     'db': ['Sleepycat'],
     'cmake': ['BSD'],
     'cups-filters': ['GPL', 'GPL2', 'GPL3-only', 'GPL3'],
+    'discord': ['non-free'],
     'expat': ['MIT'],
     'file': ['BSD'],
     'flashplugin': ['non-free'],
