@@ -46,7 +46,7 @@ FREE_LICENSES = [clean_license_name(license) for license in [
     'CC0',
     'CC-BY-SA',
     'cc-by-sa-2.5',
-    'CC-BY-SA 3.0',
+    'CC-BY-SA3.0',
     'CC BY-SA 4.0',
     'CCPL:by-sa',
     'CCPL:cc-by-sa',
@@ -84,6 +84,7 @@ FREE_LICENSES = [clean_license_name(license) for license in [
     'HPND',
     'IBM Public Licence',
     'icu',
+    'ImageMagick',
     'Info-ZIP',
     'INN',
     'ISC',
@@ -176,8 +177,11 @@ FREE_LICENSES = [clean_license_name(license) for license in [
 
 class LicenseFinder(object):
     def __init__(self):
-        # all of the seen license names with counts
+        # all of the seen (clean) license names with counts
         self.by_license = {}
+
+        # all of the seen (clean) license names with their raw variants
+        self.license_names = {}
 
         # packages with "custom" license
         self.unknown_packages = set()
@@ -191,20 +195,29 @@ class LicenseFinder(object):
         free_pkgs = []
 
         for pkg in pkgs:
-            licenses = [clean_license_name(license) for license in pkg.licenses]
-            for license in licenses:
-                # get a list of all licenses on the box
-                if license not in self.by_license:
-                    self.by_license[license] = [pkg]
+            licenses = []
+
+            # get a list of all licenses on the box
+            for license in pkg.licenses:
+                clean_license = clean_license_name(license)
+                licenses.append(clean_license)
+
+                if clean_license not in self.by_license:
+                    self.by_license[clean_license] = [pkg]
                 else:
-                    self.by_license[license].append(pkg)
+                    self.by_license[clean_license].append(pkg)
+
+                if clean_license not in self.license_names:
+                    self.license_names[clean_license] = {}
+                if license not in self.license_names[clean_license]:
+                    self.license_names[clean_license][license] = 0
+                self.license_names[clean_license][license] += 1
 
             free_licenses = list(filter(lambda x: x in FREE_LICENSES, licenses))
             amb_licenses = list(filter(lambda x: x in AMBIGUOUS_LICENSES, licenses))
 
-            if len(free_licenses) > 0:
+            if len(free_licenses) == len(licenses):
                 free_pkgs.append(pkg)
-                continue
             elif len(amb_licenses) > 0:
                 self.unknown_packages.add(pkg)
             else:
@@ -217,7 +230,10 @@ class LicenseFinder(object):
         sorted_by_popularity.sort(key=lambda lic : len(self.by_license[lic]), reverse=True)
         for lic in sorted_by_popularity:
             pop = len(self.by_license[lic])
-            print("    \"%s\",%s" % (lic.replace("\"", "\\\""), " # %s" % [ p.name for p in self.by_license[lic] ] if pop < obscure_license_pop_cutoff else ""))
+            license_names = self.license_names[lic]
+            print(license_names)
+            license_name = max(license_names, key=license_names.get)
+            print("    \"%s\",%s" % (license_name.replace("\"", "\\\""), " # %s" % [ p.name for p in self.by_license[lic] ] if pop < obscure_license_pop_cutoff else ""))
 
     def list_all_licenses(self):
         sorted_by_popularity = list(self.by_license.keys())
