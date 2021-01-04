@@ -45,9 +45,9 @@ FREE_LICENSES = [clean_license_name(license) for license in [
     'bzip2',
     'CC0',
     'CC-BY-SA',
-    'cc-by-sa-2.5',
-    'CC-BY-SA3.0',
-    'CC BY-SA 4.0',
+    'CC-BY-SA-2.5',
+    'CC-BY-SA-3.0',
+    'CC BY-SA-4.0',
     'CCPL:by-sa',
     'CCPL:cc-by-sa',
     'CDDL',
@@ -216,7 +216,7 @@ class LicenseFinder(object):
             free_licenses = list(filter(lambda x: x in FREE_LICENSES, licenses))
             amb_licenses = list(filter(lambda x: x in AMBIGUOUS_LICENSES, licenses))
 
-            if len(free_licenses) == len(licenses):
+            if len(free_licenses) > 0:
                 free_pkgs.append(pkg)
             elif len(amb_licenses) > 0:
                 self.unknown_packages.add(pkg)
@@ -231,7 +231,6 @@ class LicenseFinder(object):
         for lic in sorted_by_popularity:
             pop = len(self.by_license[lic])
             license_names = self.license_names[lic]
-            print(license_names)
             license_name = max(license_names, key=license_names.get)
             print("    \"%s\",%s" % (license_name.replace("\"", "\\\""), " # %s" % [ p.name for p in self.by_license[lic] ] if pop < obscure_license_pop_cutoff else ""))
 
